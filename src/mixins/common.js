@@ -82,6 +82,11 @@ export default {
     handlePreviewImageClick(images, currentIndex) {
       this.$emit('image-click', images, currentIndex);
     },
+    handleTocNavLoaded(titles) {
+      if (this.isPreviewMode()) {
+        this.$emit('toc-nav-loaded', titles);
+      }
+    },
     save() {
       this.$emit('save', this.text, this.$refs.preview.html);
     },

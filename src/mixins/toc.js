@@ -17,6 +17,7 @@ export default {
   mounted() {
     if (this.defaultTocVisible) {
       this.toggleToc();
+      this.$emit('toc-nav-loaded', this.titles);
     }
   },
   watch: {
@@ -64,6 +65,10 @@ export default {
         lineIndex: el.getAttribute(LINE_MARKUP),
         indent: hTags.indexOf(el.tagName),
       }));
+
+      if (this.defaultTocVisible) {
+        this.$emit('toc-nav-loaded', titles);
+      }
     },
     handleNavClick({ lineIndex }) {
       this.scrollToLine(lineIndex);

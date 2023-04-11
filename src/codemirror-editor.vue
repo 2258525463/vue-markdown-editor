@@ -19,6 +19,7 @@
       <toc-nav
         :titles="titles"
         @nav-click="handleNavClick"
+        @toc-nav-loaded="handleTocNavLoaded"
       />
     </scrollbar>
     <div
